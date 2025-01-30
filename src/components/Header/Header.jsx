@@ -1,21 +1,30 @@
 import React, { useState } from 'react';
 import "./Header.css";
-import { Col, Container, Row, Dropdown, InputGroup, Form, ListGroup, Navbar, Offcanvas, Nav, Button, NavDropdown } from 'react-bootstrap';
+import { Col, Container, Row, Dropdown, InputGroup, Form, ListGroup, Navbar, Offcanvas, Nav, NavDropdown } from 'react-bootstrap';
 import logo from "../../assets/icons/logo.png";
 import Cart from '../Cart/Cart';
 import CategoriesList from './CategoriesList';
+import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 
 const Header = () => {
   const [cartBox, setCartBox] = useState(false);
   const [showNavBar, setShowNavbar] = useState(false);
+  const [dropDownShow, setDropDownShow] = useState(0);
 
-  const handleNavbarToggle = () => {
-    setShowNavbar(!showNavBar);
-  };
+  const handleDropDown = (type, id) => {
+    if (window.innerWidth >= 1199) {
+      type === "in" ? setDropDownShow(id) : setDropDownShow(0)
+    }
+    if (type === 'click') {
+      if (dropDownShow) {
+        setDropDownShow(0);
+      }
+    }
+  }
 
   return (
     <>
-      <nav className="top_header py-1">
+      <div className="top_header py-1">
         <Container>
           <Row className="align-items-center">
             <Col md={6} sm={6} xs={6}>
@@ -35,7 +44,7 @@ const Header = () => {
             </Col>
           </Row>
         </Container>
-      </nav>
+      </div>
 
       <header className='py-3 border-bottom'>
         <Container>
@@ -45,7 +54,7 @@ const Header = () => {
             </Col>
 
             <Col xl={5} lg={4} className='d-none d-lg-block'>
-              <div className='search_box position-relative'>
+              <div className='search_box'>
                 <InputGroup>
                   <Form.Control
                     placeholder="Search for Products"
@@ -54,9 +63,7 @@ const Header = () => {
                     type="search"
                     className="rounded-1 py-2"
                   />
-                  <InputGroup.Text className="position-absolute end-0 pe-3">
-                    <i className="bi bi-search"></i>
-                  </InputGroup.Text>
+                  <i className="bi bi-search position-absolute"></i>
                 </InputGroup>
               </div>
             </Col>
@@ -67,18 +74,14 @@ const Header = () => {
               </button>
             </Col>
 
-            <Col xl={2} lg={3} md={6} sm={7} xs={7} className="d-flex justify-content-end">
-              <ListGroup className="d-flex flex-row gap-3">
+            <Col xl={2} lg={3} md={6} sm={7} xs={7}>
+              <ListGroup horizontal className="justify-content-end">
                 <ListGroup.Item className="border-0">
                   <span className='d-flex align-items-center'>
-                    <span className="position-relative">
-                      <i className="bi bi-person-circle h4 mb-0"></i>
-                      <span className="position-absolute translate-middle badge rounded-pill bg-danger">
-                        2
-                        <span className="visually-hidden">account notifications</span>
-                      </span>
+                    <i className="bi bi-person-circle h4 mb-0"></i>
+                    <span className="ms-1 d-none d-sm-block body-text">
+                      Account
                     </span>
-                    <span className="ms-2 d-none d-sm-block body-text">Account</span>
                   </span>
                 </ListGroup.Item>
 
@@ -102,7 +105,7 @@ const Header = () => {
                     <span className="position-relative">
                       <i className="bi bi-cart h4 mb-0"></i>
                       <span className="position-absolute translate-middle badge rounded-pill bg-danger">
-                        2
+                        9
                         <span className="visually-hidden">items in cart</span>
                       </span>
                     </span>
@@ -112,9 +115,9 @@ const Header = () => {
 
                 <ListGroup.Item className='border-0 d-block d-lg-none'>
                   <i className="bi bi-list h4"
-                    onClick={handleNavbarToggle}
+                    onClick={() => setShowNavbar(!showNavBar)}
                     aria-controls={`offcanvasNavbar-expand-lg`}
-                  />
+                  ></i>
                 </ListGroup.Item>
               </ListGroup>
             </Col>
@@ -127,26 +130,26 @@ const Header = () => {
           <Row>
             <Navbar expand='lg' className="p-0" >
               <Container fluid>
-                <Navbar.Toggle aria-controls="offcanvasNavbar" />
-                <Navbar.Collapse id="offcanvasNavbar">
-                  <Offcanvas
-                    id="offcanvasNavbar-expand-lg"
-                    aria-labelledby="offcanvasNavbarLabel-expand-lg"
-                    placement="start"
-                    show={showNavBar}
-                    onHide={handleNavbarToggle}
-                  >
-                    <Offcanvas.Header className='justify-content-between border-bottom'>
-                      <Offcanvas.Title id="offcanvasNavbarLabel-expand-lg">
-                        <img src={logo} alt="logo" className='img-fluid' />
-                      </Offcanvas.Title>
-                      <button className='btn-secondary-btn'>
-                        <i className="bi bi-x-lg"></i>
-                      </button>
+                <Navbar.Offcanvas
+                  id="offcanvasNavbar-expand-lg"
+                  aria-labelledby="offcanvasNavbarLabel-expand-lg"
+                  placement="start"
+                  show={showNavBar}
+                >
+                  <Offcanvas.Header className='justify-content-between border-bottom'>
+                    <Offcanvas.Title id="offcanvasNavbarLabel-expand-lg">
+                      <img src={logo} alt="logo" className='img-fluid' />
+                    </Offcanvas.Title>
+                    <button
+                      className='btn-secondary-btn'
+                      onClick={() => setShowNavbar(false)}
+                    >
+                      <i className="bi bi-x-lg"></i>
+                    </button>
 
-                    </Offcanvas.Header>
-                    <Offcanvas.Body className='align-items-center'>
-                      <div className="d-block d-lg-none">
+                  </Offcanvas.Header>
+                  <Offcanvas.Body className='align-items-center'>
+                    <div className="d-block d-lg-none">
                       <div className="search_box mt-2">
                         <InputGroup>
                           <Form.Control
@@ -156,46 +159,138 @@ const Header = () => {
                             type="search"
                             className="rounded-1 py-2"
                           />
-                          <InputGroup.Text className="position-absolute end-0 pe-3">
-                            <i className="bi bi-search"></i>
-                          </InputGroup.Text>
+                          <i className="bi bi-search position-absolute"></i>
                         </InputGroup>
                       </div>
                       <button className='btn btn-light rounded-1 w-100 mb-3'>
-                        <i className="bi bi-geo-alt me-2"></i>
+                        <i className="bi bi-geo-alt me-2">Pick Location</i>
                       </button>
-                      </div>
-                      <div className="category_list">
-                        <CategoriesList />
-                      </div>
+                    </div>
+                    <div className="category_list">
+                      <CategoriesList />
+                    </div>
 
-                      <Nav className="justify-content-end flex-grow-1 pe-3">
-                        <Nav.Link href="#action1">Home</Nav.Link>
-                        <Nav.Link href="#action2">Link</Nav.Link>
-                        <NavDropdown
-                          title="Dropdown"
-                          id="offcanvasNavbarDropdown-expand-lg"
-                        >
-                          <NavDropdown.Item href="#action3">Action</NavDropdown.Item>
-                          <NavDropdown.Item href="#action4">Another action</NavDropdown.Item>
-                          <NavDropdown.Divider />
-                          <NavDropdown.Item href="#action5">
-                            Something else here
-                          </NavDropdown.Item>
-                        </NavDropdown>
-                      </Nav>
-                      <Form className="d-flex">
-                        <Form.Control
-                          type="search"
-                          placeholder="Search"
-                          className="me-2"
-                          aria-label="Search"
-                        />
-                        <Button variant="outline-success">Search</Button>
-                      </Form>
-                    </Offcanvas.Body>
-                  </Offcanvas>
-                </Navbar.Collapse>
+                    <Nav className="justify-content-end flex-grow-1 pe-3">
+                      <Nav.Link href="#action1">Home</Nav.Link>
+                      <Nav.Link href="#action2">About us</Nav.Link>
+                      <Nav.Link href="#action2">Shop</Nav.Link>
+                      <NavDropdown
+                        title="Stores"
+                        id={'offcanvasNavbarDropdown-expand-lg'}
+                        show={dropDownShow === 1 ? true : false}
+                        onMouseEnter={() => handleDropDown('in', 1)}
+                        onMouseLeave={() => handleDropDown('out', 0)}
+                        onClick={() => handleDropDown('click', 1)}
+                      >
+                        <NavDropdown.Item href="#action3">
+                          Action
+                        </NavDropdown.Item>
+                        <NavDropdown.Item href="#action4">
+                          Another action
+                        </NavDropdown.Item>
+                        <NavDropdown.Divider />
+                        <NavDropdown.Item href="#action5">
+                          Something
+                        </NavDropdown.Item>
+                        <NavDropdown.Item href="#action5">
+                          Seperated Link
+                        </NavDropdown.Item>
+                      </NavDropdown>
+
+                      <NavDropdown
+                      className='dropdown-fullwidth'
+                        title="All Departments"
+                        id={'collapsible-nav-dropdown'}
+                        show={dropDownShow === 2 ? true : false}
+                        onMouseEnter={() => handleDropDown('in', 2)}
+                        onMouseLeave={() => handleDropDown('out', 0)}
+                        onClick={() => handleDropDown('click', 2)}
+                      >
+                        <Row>
+                          <Col lg={3} xs={12} className='mb-2 mb-lg-0 border-end'>
+                            <h6 className='primary-text sub-heading mb-1 ms-2'>
+                              Diary, Bread Eggs
+                            </h6>
+                            <a className='dropdown-item' href='#'>
+                              Butter
+                            </a>
+                            <a className='dropdown-item' href='#'>
+                              Milk Drinks
+                            </a>
+                            <a className='dropdown-item' href='#'>
+                              Curd Yogurt
+                            </a>
+                            <a className='dropdown-item' href='#'>
+                              Eggs
+                            </a>
+                          </Col>
+
+                          <Col lg={3} xs={12} className='mb-2 mb-lg-0 border-end'>
+                            <h6 className='primary-text sub-heading mb-1 ms-2'>
+                              Diary, Bread Eggs
+                            </h6>
+                            <a className='dropdown-item' href='#'>
+                              Butter
+                            </a>
+                            <a className='dropdown-item' href='#'>
+                              Milk Drinks
+                            </a>
+                            <a className='dropdown-item' href='#'>
+                              Curd Yogurt
+                            </a>
+                            <a className='dropdown-item' href='#'>
+                              Eggs
+                            </a>
+                            
+                          </Col>
+
+                          <Col lg={3} xs={12} className='mb-2 mb-lg-0 border-end'>
+                            <h6 className='primary-text sub-heading mb-1 ms-2'>
+                              Diary, Bread Eggs
+                            </h6>
+                            <a className='dropdown-item' href='#'>
+                              Butter
+                            </a>
+                            <a className='dropdown-item' href='#'>
+                              Milk Drinks
+                            </a>
+                            <a className='dropdown-item' href='#'>
+                              Curd Yogurt
+                            </a>
+                            <a className='dropdown-item' href='#'>
+                              Eggs
+                            </a>
+                            
+                          </Col>
+
+                          <Col lg={3} xs={12} className='mb-2 mb-lg-0 border-end'>
+                            <h6 className='primary-text sub-heading mb-1 ms-2'>
+                              Diary, Bread Eggs
+                            </h6>
+                            <a className='dropdown-item' href='#'>
+                              Butter
+                            </a>
+                            <a className='dropdown-item' href='#'>
+                              Milk Drinks
+                            </a>
+                            <a className='dropdown-item' href='#'>
+                              Curd Yogurt
+                            </a>
+                            <a className='dropdown-item' href='#'>
+                              Eggs
+                            </a>
+                            
+                          </Col>
+
+                        </Row>
+                      </NavDropdown>
+
+                      <Nav.Link href="#action1">Blog</Nav.Link>
+                      <Nav.Link href="#action2">Contact us</Nav.Link>
+
+                    </Nav>
+                  </Offcanvas.Body>
+                </Navbar.Offcanvas>
               </Container>
             </Navbar>
           </Row>
