@@ -1,13 +1,185 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+/* Importing Google Fonts for the 'Inter' font family */
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+/* bootstrap-icons css */
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css");
+
+/* Root variables for color scheme, font sizes, line heights, and font family */
+
+:root {
+  --clr-primary: #0aad0a;
+  --clr-secondary: #eff3eb;
+  --clr-bg: #f8fdf3;
+
+  --clr-white: #fff;
+
+  --clr-text: #4b5563;
+  --clr-heading: #031403;
+
+  --clr-box1: #feeef0;
+  --clr-box2: #f7f5f4;
+  --clr-box3: #f3f7ed;
+
+  --fs-main: 50px;
+  --fs-heading: 20px;
+  --fs-sub-heading: 16px;
+  --fs-body: 14px;
+  --fs-small: 12px;
+
+  --lh-main:60px;
+  --lh-heading:26px;
+  --lh-sub-heading:20px;
+  --lh-body:20px;
+  --lh-small:14px;
+
+  --fontFamily: "Inter", sans-serif;
+
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+/* Dark theme colors applied when [data-bs-theme="dark"] is active */
+[data-bs-theme="dark"] {
+  --clr-primary: #286c28;
+  --clr-secondary: #222934;
+  --clr-bg: #222934;
+
+  --clr-heading: whitesmoke;
+  --clr-text: #e0e0e0;
+
+  --clr-box1: #2e222c;
+  --clr-box2: #1b2c2c;
+  --clr-box3: #1a2537;
+
+}
+
+/* Media queries to adjust font sizes and line heights for smaller screens */
+@media (max-width: 768px) {
+  :root {
+    --fs-main : 35px;
+    --lh-main : 45px;
+  }
+}
+
+@media (max-width: 576px) {
+  :root {
+    --fs-main : 26px;
+    --lh-main : 36px;
+  }
+}
+
+/* General reset for all HTML elements, removing default margins and padding */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+  font-family: var(--fontFamily);
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/* Override Bootstrap default .container max-width to a custom size */
+.container {
+  max-width: 1440px;
+}
+
+@media screen and (min-width : 1280px) {
+  .container {
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+  }
+}
+
+/* Main heading styles */
+.main-heading {
+  font-size: var(--fs-main);
+  color: var(--clr-heading);
+  font-weight: bold;
+  line-height: var(--lh-main);
+}
+
+.heading {
+  font-size: var(--fs-heading);
+  color: var(--clr-heading);
+  font-weight: bold;
+  line-height: var(--lh-sub-heading);
+}
+
+.sub-heading {
+  font-size: var(--fs-body);
+  color: var(--clr-heading);
+  font-weight: bold;
+  line-height: var(--lh-main);
+}
+
+.primary-btn {
+  border: 1px solid var(--clr-primary);
+  border-radius: 4px;
+  color: var(--clr-white);
+  font-size: var(--fs-body);
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  padding: 8px 15px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  transition: all 0.2s ease-in-out;
+  border: none;
+
+}
+
+.primary-btn:hover {
+  
+}
+
+.secondary-btn {
+  border: 1px solid var(--clr-secondary);
+  border-radius: 4px;
+  color: var(--clr-heading);
+  font-size: var(--fs-body);
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  padding: 8px 15px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  transition: all 0.2s ease-in-out;
+
+}
+
+.secondary-btn:hover {
+  background-color: var(--clr-secondary);
 }
