@@ -230,6 +230,25 @@ export const productData = [
     image: product10,
     rating: 5,
   },
+  {
+    id: 11,
+    title: "Fresh mango, Spain  ",
+    price: 90,
+    offerPrice: 85,
+    cat: "Snack & Munchies",
+    image: product7,
+    rating: 3,
+  },
+
+  {
+    id: 12,
+    title: "Fresh mango, Spain  ",
+    price: 190,
+    offerPrice: 165,
+    cat: "Fruits & Vegetables",
+    image: product8,
+    rating: 3,
+  },
 ];
 
 export const featureData = [
