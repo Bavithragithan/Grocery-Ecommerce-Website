@@ -255,26 +255,26 @@ export const featureData = [
   {
     id: 0,
     title: "Payment only online",
-    text: "Lorem Ipsum is simply dummy text of the printing.",
+    text: "All transactions must be completed through online payment methods. No cash or in-person payments are accepted.",
     image: feature1,
     
   },
   {
     id: 1,
     title: "New stocks and sales",
-    text: "Lorem Ipsum is simply dummy text of the printing.",
+    text: "Stay updated with the latest product arrivals and ongoing discounts. Check frequently for fresh stock and exclusive deals.",
     image: feature2,
   },
   {
     id:2, 
     title:'Quality assurance', 
-    text:'Lorem Ipsum is simply dummy text of the printing.',
+    text:'We ensure all products meet high-quality standards before they reach customers. Satisfaction and reliability are our top priorities.',
     image:feature3,
   },
   {
     id:3, 
     title:'Delivery from 1 hour', 
-    text:'Lorem Ipsum is simply dummy text of the printing.',
+    text:'Fast and efficient delivery service, with orders arriving in as little as one hour, depending on location and availability.',
     image:feature4,
   }
 ];

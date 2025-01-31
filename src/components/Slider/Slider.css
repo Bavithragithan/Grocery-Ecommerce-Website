@@ -72,3 +72,18 @@
         width: 90%;
     }
 }
+
+@media only screen and (max-width:600px) {
+    .slider-section h3 {
+        font-size: 16px;
+        line-height: 18px;
+    }
+
+    .slider-section p {
+        font-size: 8px;
+    }
+
+    .slider-section .btn {
+        font-size: 10px;
+    }
+}
