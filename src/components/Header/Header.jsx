@@ -211,16 +211,16 @@ const Header = () => {
                             <h6 className='primary-text sub-heading mb-1 ms-2'>
                               Diary, Bread Eggs
                             </h6>
-                            <a className='dropdown-item' href='#'>
+                            <a className='dropdown-item' href='#action'>
                               Butter
                             </a>
-                            <a className='dropdown-item' href='#'>
+                            <a className='dropdown-item' href='#action'>
                               Milk Drinks
                             </a>
-                            <a className='dropdown-item' href='#'>
+                            <a className='dropdown-item' href='#action'>
                               Curd Yogurt
                             </a>
-                            <a className='dropdown-item' href='#'>
+                            <a className='dropdown-item' href='#action'>
                               Eggs
                             </a>
                           </Col>
@@ -229,35 +229,16 @@ const Header = () => {
                             <h6 className='primary-text sub-heading mb-1 ms-2'>
                               Diary, Bread Eggs
                             </h6>
-                            <a className='dropdown-item' href='#'>
+                            <a className='dropdown-item' href='#action'>
                               Butter
                             </a>
-                            <a className='dropdown-item' href='#'>
+                            <a className='dropdown-item' href='#action'>
                               Milk Drinks
                             </a>
-                            <a className='dropdown-item' href='#'>
+                            <a className='dropdown-item' href='#action'>
                               Curd Yogurt
                             </a>
-                            <a className='dropdown-item' href='#'>
-                              Eggs
-                            </a>
-                            
-                          </Col>
-
-                          <Col lg={3} xs={12} className='mb-2 mb-lg-0 border-end'>
-                            <h6 className='primary-text sub-heading mb-1 ms-2'>
-                              Diary, Bread Eggs
-                            </h6>
-                            <a className='dropdown-item' href='#'>
-                              Butter
-                            </a>
-                            <a className='dropdown-item' href='#'>
-                              Milk Drinks
-                            </a>
-                            <a className='dropdown-item' href='#'>
-                              Curd Yogurt
-                            </a>
-                            <a className='dropdown-item' href='#'>
+                            <a className='dropdown-item' href='#action'>
                               Eggs
                             </a>
                             
@@ -267,16 +248,35 @@ const Header = () => {
                             <h6 className='primary-text sub-heading mb-1 ms-2'>
                               Diary, Bread Eggs
                             </h6>
-                            <a className='dropdown-item' href='#'>
+                            <a className='dropdown-item' href='action'>
                               Butter
                             </a>
-                            <a className='dropdown-item' href='#'>
+                            <a className='dropdown-item' href='#action'>
                               Milk Drinks
                             </a>
-                            <a className='dropdown-item' href='#'>
+                            <a className='dropdown-item' href='#action'>
                               Curd Yogurt
                             </a>
-                            <a className='dropdown-item' href='#'>
+                            <a className='dropdown-item' href='#action'>
+                              Eggs
+                            </a>
+                            
+                          </Col>
+
+                          <Col lg={3} xs={12} className='mb-2 mb-lg-0 border-end'>
+                            <h6 className='primary-text sub-heading mb-1 ms-2'>
+                              Diary, Bread Eggs
+                            </h6>
+                            <a className='dropdown-item' href='#action'>
+                              Butter
+                            </a>
+                            <a className='dropdown-item' href='#action'>
+                              Milk Drinks
+                            </a>
+                            <a className='dropdown-item' href='#action'>
+                              Curd Yogurt
+                            </a>
+                            <a className='dropdown-item' href='#action'>
                               Eggs
                             </a>
                             
