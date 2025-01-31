@@ -72,7 +72,7 @@ const Footer = () => {
             <h6 className="mb-4 sub-heading">Contact Us</h6>
             <ul className="list-unstyled">
               <li className="mb-3">
-                <i className="bi bi-house-door me-2"></i> New York, NY 10012, US
+                <i className="bi bi-house-door me-2"></i> No32, Stanley Road, Jaffna, Srilanka
               </li>
               <li className="mb-3">
                 <i className="bi bi-envelope me-2"></i> info@gmail.com
@@ -86,7 +86,7 @@ const Footer = () => {
 
         <Row className="align-items-center border-top mt-4 pt-3">
           <Col className="text-center">
-            <p className="m-0 lh-sm">© 2024 Grocery App. All rights reserved.</p>
+            <p className="m-0 lh-sm">© 2025 Grocery App. All rights reserved.</p>
             <p className="m-0 lh-sm">Designed by Bavithragithan Kuganesan</p>
           </Col>
         </Row>
