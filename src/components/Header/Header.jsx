@@ -139,8 +139,9 @@ const Header = () => {
                       <img src={logo} alt="logo" className='img-fluid' />
                     </Offcanvas.Title>
                     <button
-                      className='btn-secondary-btn'
+                      className="btn btn-light btn-sm rounded-circle shadow-none"
                       onClick={() => setShowNavbar(false)}
+                      aria-label="Close"
                     >
                       <i className="bi bi-x-lg"></i>
                     </button>
@@ -235,7 +236,7 @@ const Header = () => {
                             <a className='dropdown-item' href='#action'>
                               Eggs
                             </a>
-                            
+
                           </Col>
 
                           <Col lg={3} xs={12} className='mb-2 mb-lg-0 border-end'>
@@ -254,7 +255,7 @@ const Header = () => {
                             <a className='dropdown-item' href='#action'>
                               Eggs
                             </a>
-                            
+
                           </Col>
 
                           <Col lg={3} xs={12} className='mb-2 mb-lg-0 border-end'>
@@ -273,7 +274,7 @@ const Header = () => {
                             <a className='dropdown-item' href='#action'>
                               Eggs
                             </a>
-                            
+
                           </Col>
 
                         </Row>
