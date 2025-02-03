@@ -16,9 +16,7 @@ const Header = () => {
       type === "in" ? setDropDownShow(id) : setDropDownShow(0)
     }
     if (type === 'click') {
-      if (dropDownShow) {
-        setDropDownShow(0);
-      }
+      setDropDownShow(dropDownShow === id ? 0 : id);
     }
   }
 
@@ -178,8 +176,6 @@ const Header = () => {
                         title="Stores"
                         id={'offcanvasNavbarDropdown-expand-lg'}
                         show={dropDownShow === 1 ? true : false}
-                        onMouseEnter={() => handleDropDown('in', 1)}
-                        onMouseLeave={() => handleDropDown('out', 0)}
                         onClick={() => handleDropDown('click', 1)}
                       >
                         <NavDropdown.Item href="#action3">
@@ -193,17 +189,15 @@ const Header = () => {
                           Something
                         </NavDropdown.Item>
                         <NavDropdown.Item href="#action5">
-                          Seperated Link
+                          Separated Link
                         </NavDropdown.Item>
                       </NavDropdown>
 
                       <NavDropdown
-                      className='dropdown-fullwidth'
+                        className='dropdown-fullwidth'
                         title="All Departments"
                         id={'collapsible-nav-dropdown'}
                         show={dropDownShow === 2 ? true : false}
-                        onMouseEnter={() => handleDropDown('in', 2)}
-                        onMouseLeave={() => handleDropDown('out', 0)}
                         onClick={() => handleDropDown('click', 2)}
                       >
                         <Row>

@@ -1,89 +1,95 @@
-.slider-section .carousel_caption {
+.slider-section {
+    position: relative;
+    width: 100%;
+}
+
+.slider-section .carousel-caption {
     position: absolute;
     top: 50%;
     width: 75%;
     left: 6%;
     text-align: left;
-    padding: 0;
-    bottom: unset !important;
-    right: unset !important;
     transform: translate3d(250%, -50%, 0);
-    transition: all 0.75s ease 0s;
+    transition: all 0.75s ease-in-out;
 }
 
-.slider-section .active .carousel_caption {
+.slider-section .carousel-item.active .carousel-caption {
     transform: translate3d(5%, -50%, 0);
 }
 
 .primary-btn {
-    background-color: var(--clr-primary); 
-    color: white; 
-    border: none; 
-    padding: 10px 20px; 
-    font-size: 16px; 
-    cursor: pointer; 
+    background-color: var(--clr-primary);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
     transition: background-color 0.3s ease;
 }
 
 .primary-btn:hover {
-    background-color: #218838; 
+    background-color: #218838;
 }
 
-.slider-section .carousel_caption h3 {
+.slider-section .carousel-caption h3 {
     color: #031403;
+    font-size: 24px;
+    font-weight: bold;
 }
 
-.slider-section .carousel_caption p {
+.slider-section .carousel-caption p {
     color: #4b5563;
-    font-size: var(--fs-body);
+    font-size: 16px;
     line-height: 24px;
 }
 
-.slider-section .carousel_item img {
-    object-fit: cover;
+.carousel-image {
     width: 100%;
-}
-
-.slider-section .carousel-indicators [data-bs-target]::after {
-    background-color: var(--clr-primary);
-    border-radius: 50%;
-    content: "";
-    height: 75%;
-    left: 50%;
-    opacity: 0;
-    position: absolute;
-    top: 50%;
-    transform: translate(-50%, -50%) scale(0);
-    transition: 0.3s;
-    width: 75%;
-}
-
-.slider-section .carousel-indicators .active::after {
-    opacity: 1;
-    transform: translate(-50%, -50%) scale(1);
+    object-fit: cover;
 }
 
 @media only screen and (max-width: 769px) {
-    .slider-section .caroousel-indicators img {
-        height: 300px;
+    .slider-section .carousel-caption {
+        width: 90%;
+        left: 5%;
     }
 
-    .slider-section .carousel_caption {
-        width: 90%;
+    .slider-section .carousel-caption h3 {
+        font-size: 12px;
+        line-height: 24px;
+        margin-top: -72px;
+    }
+
+    .slider-section .carousel-caption p {
+        font-size: 8px;
+        line-height: 20px;
+        width: 50%;
+    }
+
+    .slider-section .primary-btn {
+        font-size: 10px;
+        padding: 8px 16px;
     }
 }
 
-@media only screen and (max-width:600px) {
-    .slider-section h3 {
+@media only screen and (max-width: 600px) {
+    .slider-section .carousel-caption {
+        width: 95%;
+        left: 3%;
+    }
+
+    .slider-section .carousel-caption h3 {
         font-size: 16px;
+        line-height: 20px;
+    }
+
+    .slider-section .carousel-caption p {
+        font-size: 12px;
         line-height: 18px;
     }
 
-    .slider-section p {
-        font-size: 8px;
-    }
-
-    .slider-section .btn {
-        font-size: 10px;
+    .slider-section .primary-btn {
+        font-size: 12px;
+        padding: 6px 12px;
     }
 }
